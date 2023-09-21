@@ -11,6 +11,6 @@ class Game {
     private var aliveCell: List<Position>
 
     fun isOver() : Boolean {
-        return false
+        return true
     }
 }
