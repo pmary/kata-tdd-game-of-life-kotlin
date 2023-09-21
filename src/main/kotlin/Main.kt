@@ -13,7 +13,7 @@ class Cell(private var cellState: CellState) {
 
     fun evolve(neighbours: List<Cell>) {
         val numNeighboursAlive = neighbours.count { it.state == CellState.ALIVE }
-        if (numNeighboursAlive < 2) {
+        if (numNeighboursAlive < 2 || numNeighboursAlive > 3) {
             state = CellState.DEAD
         }
     }
