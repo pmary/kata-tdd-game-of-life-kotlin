@@ -88,4 +88,17 @@ class GameTest {
         val game = Game(grid, listOf(Position(0,0)))
         assertEquals(game.isOver(), false)
     }
+
+    @Test
+    fun`Given a new game, When there is one living cell, Then after the next evolution the game is over`(){
+        // Given
+        val grid = Grid(3, 3)
+        val game = Game(grid, listOf(Position(0,0)))
+
+        // When
+        game.play()
+
+        // Then
+        assertEquals(game.isOver(), true)
+    }
 }

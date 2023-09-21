@@ -13,4 +13,8 @@ class Game {
     fun isOver() : Boolean {
         return aliveCell.isEmpty()
     }
+
+    fun play(){
+
+    }
 }
