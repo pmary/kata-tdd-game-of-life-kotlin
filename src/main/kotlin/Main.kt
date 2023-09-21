@@ -10,4 +10,8 @@ class Cell(private var cellState: CellState) {
     fun isAlive(): Boolean {
         return state == CellState.ALIVE
     }
+
+    fun evolve(neighbours: List<Cell>) {
+
+    }
 }
