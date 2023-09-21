@@ -22,7 +22,7 @@ class Cell(private var cellState: CellState) {
                 }
             }
             CellState.DEAD -> {
-                CellState.DEAD
+                CellState.ALIVE
             }
         }
     }
