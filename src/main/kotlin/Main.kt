@@ -15,6 +15,8 @@ class Cell(private var cellState: CellState) {
         val numNeighboursAlive = neighbours.count { it.state == CellState.ALIVE }
         if (numNeighboursAlive < 2 || numNeighboursAlive > 3) {
             state = CellState.DEAD
+        } else {
+            state = CellState.DEAD
         }
     }
 }
