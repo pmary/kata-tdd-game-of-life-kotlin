@@ -1,5 +1,3 @@
-data class Position(var x: Int, var y: Int)
-
 class Grid(private val rows: Int, private val cols: Int) {
     private var currentPosition = Position(0, 0)
     private var isInitialized = false
