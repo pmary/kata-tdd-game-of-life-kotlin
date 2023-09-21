@@ -101,4 +101,27 @@ class GameTest {
         // Then
         assertEquals(game.isOver(), true)
     }
+
+    @Test
+    fun `Given a new game, When living cells filling an horizontal line, Then after the next evolution they form a vertical line`() {
+        // Given
+        val grid = Grid(3, 3)
+
+        // When
+        val initialAliveCells = listOf(
+            Position(1, 0), Position(1, 1), Position(1, 2)
+        )
+        val game = Game(grid, initialAliveCells)
+
+        assertEquals(game.getCellStateAtPosition(Position(1, 0)).isAlive(), true)
+        assertEquals(game.getCellStateAtPosition(Position(1, 1)).isAlive(), true)
+        assertEquals(game.getCellStateAtPosition(Position(1, 2)).isAlive(), true)
+
+        // Then
+        game.play()
+
+        assertEquals(game.getCellStateAtPosition(Position(0, 1)).isAlive(), true)
+        assertEquals(game.getCellStateAtPosition(Position(1, 1)).isAlive(), true)
+        assertEquals(game.getCellStateAtPosition(Position(2, 1)).isAlive(), true)
+    }
 }

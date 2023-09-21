@@ -28,7 +28,7 @@ class Game {
         aliveCell = aliveCellPositionForCurrentTurn
     }
 
-    private fun getCellStateAtPosition(position: Position): Cell{
+    fun getCellStateAtPosition(position: Position): Cell{
         if(aliveCell.contains(position)){
             return Cell(CellState.ALIVE)
         } else {
