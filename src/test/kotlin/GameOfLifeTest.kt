@@ -81,4 +81,11 @@ class GameTest {
         val game = Game(grid, emptyList<Position>())
         assertEquals(game.isOver(), true)
     }
+
+    @Test
+    fun `Given a new game, When there is at lease one living cell, Then the game is not over`(){
+        val grid = Grid(3, 3)
+        val game = Game(grid, listOf(Position(0,0)))
+        assertEquals(game.isOver(), false)
+    }
 }
