@@ -22,7 +22,11 @@ class Cell(private var cellState: CellState) {
                 }
             }
             CellState.DEAD -> {
-                CellState.ALIVE
+                if (numNeighboursAlive === 3) {
+                    CellState.ALIVE
+                } else {
+                    CellState.DEAD
+                }
             }
         }
     }
