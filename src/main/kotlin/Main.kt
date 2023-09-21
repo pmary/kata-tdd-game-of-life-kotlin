@@ -12,6 +12,6 @@ class Cell(private var cellState: CellState) {
     }
 
     fun evolve(neighbours: List<Cell>) {
-
+        state = CellState.DEAD
     }
 }
