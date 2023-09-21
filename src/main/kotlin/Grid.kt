@@ -38,4 +38,9 @@ class Grid(private val rows: Int, private val cols: Int) {
         }
         return position
     }
+
+    fun reset() {
+        currentPosition = Position(0, 0)
+        isInitialized = false
+    }
 }
