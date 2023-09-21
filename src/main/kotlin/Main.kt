@@ -17,8 +17,8 @@ class Cell(private var cellState: CellState) {
             state = CellState.DEAD
         } else if (numNeighboursAlive == 2) {
             state = CellState.ALIVE
-        } else {
-            state = CellState.DEAD
+        } else if (numNeighboursAlive == 3) {
+            state = CellState.ALIVE
         }
     }
 }
