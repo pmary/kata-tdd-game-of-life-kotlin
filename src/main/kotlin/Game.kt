@@ -15,6 +15,24 @@ class Game {
     }
 
     fun play(){
+        val aliveCellPositionForCurrentTurn : MutableList<Position> = mutableListOf()
+        while(grid.hasNext()){
+            val position = grid.next()
+            val neighbour = grid.getNeighbourPositions(position,1).map { p -> getCellStateAtPosition(p)}
+            val cell = getCellStateAtPosition(position)
+            cell.evolve(neighbour)
+            if(cell.isAlive()){
+                aliveCellPositionForCurrentTurn.add(position)
+            }
+        }
+        aliveCell = aliveCellPositionForCurrentTurn
+    }
 
+    private fun getCellStateAtPosition(position: Position): Cell{
+        if(aliveCell.contains(position)){
+            return Cell(CellState.ALIVE)
+        } else {
+            return Cell(CellState.DEAD)
+        }
     }
 }
