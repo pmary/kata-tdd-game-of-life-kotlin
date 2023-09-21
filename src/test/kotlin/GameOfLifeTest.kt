@@ -124,4 +124,28 @@ class GameTest {
         assertEquals(game.getCellStateAtPosition(Position(1, 1)).isAlive(), true)
         assertEquals(game.getCellStateAtPosition(Position(2, 1)).isAlive(), true)
     }
+
+    @Test
+    fun `Given a new game, When living cells filling a horizontal line, Then after two evolutions they form an horizontal line again`() {
+        // Given
+        val grid = Grid(3, 3)
+
+        // When
+        val initialAliveCells = listOf(
+            Position(1, 0), Position(1, 1), Position(1, 2)
+        )
+        val game = Game(grid, initialAliveCells)
+
+        assertEquals(game.getCellStateAtPosition(Position(1, 0)).isAlive(), true)
+        assertEquals(game.getCellStateAtPosition(Position(1, 1)).isAlive(), true)
+        assertEquals(game.getCellStateAtPosition(Position(1, 2)).isAlive(), true)
+
+        // Then
+        game.play()
+        game.play()
+
+        assertEquals(game.getCellStateAtPosition(Position(1, 0)).isAlive(), true)
+        assertEquals(game.getCellStateAtPosition(Position(1, 1)).isAlive(), true)
+        assertEquals(game.getCellStateAtPosition(Position(1, 2)).isAlive(), true)
+    }
 }
