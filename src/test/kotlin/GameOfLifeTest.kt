@@ -73,3 +73,12 @@ class GridTest {
         assertEquals(expectedNeighbours.toSet(), cellNeighbourPositions.toSet())
     }
 }
+
+class GameTest {
+    @Test
+    fun `Given a new game, When there is no living cell before the first evolution, Then the game is over`(){
+        val grid = Grid(3, 3)
+        val game = Game(grid, emptyList<Position>())
+        assertEquals(game.isOver(), true)
+    }
+}
