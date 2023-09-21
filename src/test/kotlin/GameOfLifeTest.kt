@@ -54,3 +54,22 @@ class CellTest {
         assertEquals(deadCell.isAlive(), true)
     }
 }
+
+class GridTest {
+    @Test
+    fun `Given a grid, When getNeighbourPositions is called, Then it returns all positions of the neighbours of the cell`() {
+        // Given
+        val grid = Grid(3, 3)
+
+        // When
+        val cellNeighbourPositions = grid.getNeighbourPositions(Position(1, 1), 1)
+
+        // Then
+        val expectedNeighbours = setOf(
+            Position(0, 0), Position(0, 1), Position(0, 2),
+            Position(1, 0), Position(1, 2),
+            Position(2, 0), Position(2, 1), Position(2, 2)
+        )
+        assertEquals(expectedNeighbours.toSet(), cellNeighbourPositions.toSet())
+    }
+}
