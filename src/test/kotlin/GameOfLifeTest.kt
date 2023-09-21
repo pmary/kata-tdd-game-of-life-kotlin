@@ -21,4 +21,12 @@ class CellTest {
         aliveCell.evolve(neighbours)
         assertEquals(aliveCell.isAlive(), false)
     }
+
+    @Test
+    fun `Given a cell alive, When it evolve with more than 3 live neighbors, Then it becomes dead`() {
+        val aliveCell = Cell(CellState.ALIVE)
+        val neighbours = listOf(Cell(CellState.ALIVE), Cell(CellState.ALIVE), Cell(CellState.ALIVE), Cell(CellState.ALIVE))
+        aliveCell.evolve(neighbours)
+        assertEquals(aliveCell.isAlive(), false)
+    }
 }
